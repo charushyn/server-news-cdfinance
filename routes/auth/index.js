@@ -11,8 +11,6 @@ const authRouter = express.Router();
 authRouter.post("/login", (req, res) => {
   const { login, password } = req.body;
 
-    console.log(req.cookies)
-
   const hash = crypto
     .createHmac("sha256", passwordSecret)
     .update(password)
@@ -25,8 +23,6 @@ authRouter.post("/login", (req, res) => {
 
   const { refreshToken } = getTokens(login);
 
-  console.log(refreshToken, 2)
-
   res.setHeader(
     "Set-Cookie",
     cookie.serialize("refreshToken", refreshToken, {
@@ -38,7 +34,6 @@ authRouter.post("/login", (req, res) => {
 });
 
 authRouter.get("/verify", verifyRefreshTokenMiddleware, (req, res) => {
-    console.log('ok user')
     res.send(JSON.stringify({allow: true})).status(200)
 })
 
