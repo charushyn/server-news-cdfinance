@@ -35,10 +35,24 @@ const storage = multer.diskStorage({
 
 const imageUpload = multer({storage: storage})
 
-app.use(cors({
-    origin: 'http://localhost:3000',
-    credentials: true
-}))
+// app.use(cors({
+//     origin: 'http://localhost:3000',
+//     credentials: true
+// }))
+
+app.use((req, res, next) => {
+  const allowedOrigins = ['http://127.0.0.1:3000', 'http://localhost:3000', 'https://127.0.0.1:3000', 'http://cdfinance.pl', 'https://cdfinance.pl'];
+  const origin = req.headers.origin;
+  if (allowedOrigins.includes(origin)) {
+       res.setHeader('Access-Control-Allow-Origin', origin);
+  }
+  //res.header('Access-Control-Allow-Origin', 'http://127.0.0.1:8020');
+  res.header('Access-Control-Allow-Methods', 'GET, OPTIONS, POST');
+  res.header('Access-Control-Allow-Headers', 'Content-Type, Authorization, language');
+  res.header('Access-Control-Allow-Credentials', true);
+  return next();
+});
+
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json())
 app.use(cookieParser())
