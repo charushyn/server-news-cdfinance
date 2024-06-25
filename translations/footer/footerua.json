@@ -1,1 +1,106 @@
-[{"title":"Social Media","id":1,"data":[{"text":"943300","src":"https://www.iconfinder.com/search?q=telegram","svg":"svg_dateVal_1719235109467_facebook.png","index":"0"},{"text":"newtext","src":"https://www.iconfinder.com/search?q=telegram","svg":"iconSVG_dateVal_1719239127587_Hello_Kitty.webp","index":0},{"text":"newtext","src":"https://www.iconfinder.com/search?q=telegram","svg":"iconSVG_dateVal_1719239165430_facebook.png","index":1}]},{"title":"Schedule","id":0,"data":[{"day":"","closed":"closed","isOpen":false,"time":{"from":"","to":""}}]},{"title":"Site Agreements","id":2,"data":[{"text":"","src":""},{"text":"agree","src":"https://www.iconfinder.com/search?q=telegram","index":0}]}]
+[
+    {
+        "title": "Соціальні мережі",
+        "id": 1,
+        "data": [
+            {
+                "text": "Telegram",
+                "src": "https://t.me/cdfinancebot",
+                "svg": "6214705_air_airplane_logo_paper_plane_icon.png",
+                "index": "0"
+            },
+            {
+                "text": "Facebook",
+                "src": "https://www.facebook.com/cd.finance.poland",
+                "svg": "2959749_facebook_icon.png",
+                "index": "1"
+            },
+            {
+                "text": "WhatsApp",
+                "src": "https://wa.me/message/7LWC3YO5DXYSP1",
+                "svg": "6214705_air_airplane_logo_paper_plane_icon.png",
+                "index": "2"
+            },
+            {
+                "text": "Instagram",
+                "src": "https://www.instagram.com/cd.finance/",
+                "svg": "1161953_instagram_icon.png",
+                "index": "3"
+            }
+        ]
+    },
+    {
+        "title": "Години праці",
+        "id": 0,
+        "data": [
+            {
+                "day": "Пн",
+                "closed": "Зачинено",
+                "isOpen": true,
+                "time": {
+                    "from": "8:00",
+                    "to": "18:00"
+                }
+            },
+            {
+                "day": "Вт",
+                "closed": "Зачинено",
+                "isOpen": true,
+                "time": {
+                    "from": "8:00",
+                    "to": "18:00"
+                }
+            },
+            {
+                "day": "Ср",
+                "closed": "Зачинено",
+                "isOpen": true,
+                "time": {
+                    "from": "8:00",
+                    "to": "18:00"
+                }
+            },
+            {
+                "day": "Чт",
+                "closed": "Зачинено",
+                "isOpen": true,
+                "time": {
+                    "from": "8:00",
+                    "to": "18:00"
+                }
+            },
+            {
+                "day": "Пт",
+                "closed": "Зачинено",
+                "isOpen": true,
+                "time": {
+                    "from": "8:00",
+                    "to": "18:00"
+                }
+            },
+            {
+                "day": "Сб",
+                "closed": "Зачинено",
+                "isOpen": false,
+                "time": {
+                    "from": "8:00",
+                    "to": "18:00"
+                }
+            },
+            {
+                "day": "Нд",
+                "closed": "Зачинено",
+                "isOpen": false,
+                "time": {
+                    "from": "8:00",
+                    "to": "18:00"
+                }
+            }
+        ]
+    },
+    {
+        "title": "Угоди сайту",
+        "id": 2,
+        "data": []
+    }
+]

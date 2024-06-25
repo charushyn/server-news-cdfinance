@@ -1,1 +1,12 @@
-{"welcome":"WEWEW3333","mission":"WEWEW3333","firstImg":"firstImg_dateVal_1719235639416_house.jpeg","secondImg":"secondImg_dateVal_1719235639422_leasing.jpeg","nav":[{"title":"about us","href":"about"},{"title":"about us","href":"about"},{"title":"about us","href":"about"}]}
+{
+    "welcome": "Ласкаво просимо до CD Finance!",
+    "mission": "Наше бюро — це не лише співробітники, але й передусім наші клієнти, які довірилися багаторічному досвіду та індивідуальному підходу до кожного.",
+    "firstImg": "firstImg_dateVal_1719235639416_house.jpeg",
+    "secondImg": "secondImg_dateVal_1719235639422_leasing.jpeg",
+    "nav": [
+      { "title": "Про нас", "href": "whywe" },
+      { "title": "написати нам", "href": "feedbackform" },
+      { "title": "Наші послуги", "href": "services" }
+    ]
+  }
+  

@@ -1,1 +1,20 @@
-{"welcome":"WEWEW3333","mission":"WEWEW3333","firstImg":"firstImg_dateVal_1719235639416_house.jpeg","secondImg":"secondImg_dateVal_1719235639422_leasing.jpeg","nav":[{"title":"about us","href":"about"},{"title":"about us","href":"about"},{"title":"about us","href":"about"}]}
+{
+    "welcome": "Witamy w CD Finance!",
+    "mission": "Nasze biuro to nie tylko pracownicy, ale przede wszystkim nasi klienci, którzy zaufali wieloletniemu doświadczeniu i indywidualnemu podejściu do każdego.",
+    "firstImg": "firstImg_dateVal_1719235639416_house.jpeg",
+    "secondImg": "secondImg_dateVal_1719235639422_leasing.jpeg",
+    "nav": [
+        {
+            "title": "O nas",
+            "href": "whywe"
+        },
+        {
+            "title": "Napisz do nas",
+            "href": "feedbackform"
+        },
+        {
+            "title": "Nasze usługi",
+            "href": "services"
+        }
+    ]
+}
