@@ -26,9 +26,9 @@ authRouter.post("/login", (req, res) => {
   res.setHeader(
     "Set-Cookie",
     cookie.serialize("refreshToken", refreshToken, {
+      // domain: 'https://cdfinance.pl',
       httpOnly: true,
       maxAge: refreshTokenTokenAge,
-      sameSite: 'lax',
     })
   );
   res.send(JSON.stringify({allow: true, token: refreshToken}));

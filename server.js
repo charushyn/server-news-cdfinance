@@ -56,14 +56,18 @@ app.use('', whywesRouter)
 
 
 app.post('/img', imageUpload.none(), (req, res) => {
-    try{
-        const filename = req.body.name
-        const data = fs.readFileSync(`${imageUploadPath}/${filename}`)
-        return res.send(JSON.stringify(data)).status(200)
+  fs.readFile(`${imageUploadPath}/${req.body.name}`, (err, fileData) => {
+    if(err){return res.send(JSON.stringify(err)).status(500)}
+    return res.send(JSON.stringify(fileData)).status(200)
+  })
+    // try{
+    //     const filename = req.body.name
+    //     const data = fs.readFileSync(`${imageUploadPath}/${filename}`)
+    //     return res.send(JSON.stringify(data)).status(200)
         
-    } catch(e) {
-        return res.send(JSON.stringify(e)).status(500)
-    }
+    // } catch(e) {
+    //     return res.send(JSON.stringify(e)).status(500)
+    // }
     
 })
 
