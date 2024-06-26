@@ -36,7 +36,7 @@ const storage = multer.diskStorage({
 const imageUpload = multer({storage: storage})
 
 app.use(cors({
-    origin: ['https://cdfinance.pl', 'http://cdfinance.pl', 'http://localhost:3000', 'https://127.0.0.1:3000', 'https://backend.cdfinance.pl', 'https://localhost:3000'],
+  origin: ['http://localhost:3000', 'https://localhost:3000', 'http://127.0.0.1:3000', 'https://127.0.0.1:3000', 'http://cdfinance.pl', 'https://cdfinance.pl'],
     credentials: true
 }))
 

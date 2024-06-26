@@ -28,9 +28,10 @@ authRouter.post("/login", (req, res) => {
     cookie.serialize("refreshToken", refreshToken, {
       httpOnly: true,
       maxAge: refreshTokenTokenAge,
+      sameSite: 'lax',
     })
   );
-  res.send(JSON.stringify({allow: true}));
+  res.send(JSON.stringify({allow: true, token: refreshToken}));
 });
 
 authRouter.get("/verify", verifyRefreshTokenMiddleware, (req, res) => {
