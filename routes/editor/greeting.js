@@ -113,7 +113,6 @@ router.post('/edit-greeting', [verifyRefreshTokenMiddleware, imageUpload.any()],
 
         return res.status(200).json({error: false, message: 'edited'})
     } catch (err){ 
-        console.log(err)
         return res.status(400).json({error: true, message: err.message})
     }
 })

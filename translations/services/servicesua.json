@@ -1,1 +1,31 @@
-[{"title":"Лізинг","description":"Ваша фірма потребує розширення? Потрібні автомобілі, офіси? Ми допоможемо вам! Знайдемо ідеальні умови для вас і все оформимо.","bg":"bgPhoto_dateVal_1719326336198_leasing.jpg","svg":"iconSVG_dateVal_1719326612604_carcar.png","id":2},{"title":"Іпотечні кредити","description":"Проаналізуємо всі умови та допоможемо вам з усіма питаннями.","bg":"bgPhoto_dateVal_1719326803085_bad-credit-home-loan.jpeg","svg":"iconSVG_dateVal_1719326803083_househouse.png","id":3},{"title":"Страхування","description":"Спеціалізуємось на різносторонніх пропозиціях, а саме: всі види страхування для авто, туристичне, на майно для власників і орендарів, медичні абонементи.","bg":"bgPhoto_dateVal_1719327198798_incurence.jpg","svg":"iconSVG_dateVal_1719327198797_healthcare.png","id":4},{"title":"Інвестиції","description":"Хочете, щоб ваші гроші працювали на вас? Ми це влаштуємо: фінансові консультації та допомога у капіталовкладенні.","bg":"bgPhoto_dateVal_1719327522555_investinvest.jpg","svg":"iconSVG_dateVal_1719327522553_2639841_investment_icon.png","id":5}]
+[
+    {
+      "title": "Лізинг",
+      "description": "Ваша фірма потребує розширення? Потрібні автомобілі, офіси? Ми допоможемо вам! Знайдемо ідеальні умови для вас і все оформимо.",
+      "bg": "bgPhoto_dateVal_1719326336198_leasing.jpg",
+      "svg": "iconSVG_dateVal_1719326612604_carcar.svg",
+      "id": 2
+    },
+    {
+      "title": "Іпотечні кредити",
+      "description": "Проаналізуємо всі умови та допоможемо вам з усіма питаннями.",
+      "bg": "bgPhoto_dateVal_1719326803085_bad-credit-home-loan.jpeg",
+      "svg": "iconSVG_dateVal_1719326803083_househouse.svg",
+      "id": 3
+    },
+    {
+      "title": "Страхування",
+      "description": "Спеціалізуємось на різносторонніх пропозиціях, а саме: всі види страхування для авто, туристичне, на майно для власників і орендарів, медичні абонементи.",
+      "bg": "bgPhoto_dateVal_1719327198798_incurence.jpg",
+      "svg": "iconSVG_dateVal_1719327198797_healthcare.svg",
+      "id": 4
+    },
+    {
+      "title": "Інвестиції",
+      "description": "Хочете, щоб ваші гроші працювали на вас? Ми це влаштуємо: фінансові консультації та допомога у капіталовкладенні.",
+      "bg": "bgPhoto_dateVal_1719327522555_investinvest.jpg",
+      "svg": "iconSVG_dateVal_1719327522553_2639841_investment_icon.svg",
+      "id": 5
+    }
+  ]
+  

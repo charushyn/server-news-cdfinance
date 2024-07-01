@@ -51,7 +51,6 @@ router.post('/add-opinion', [verifyRefreshTokenMiddleware, imageUpload.any()], (
 
     let index = 0;
 
-    console.log(isEqual)
 
     if(isEqual && prevDataEn.length !== 0){
         index = idUa + 1
@@ -119,7 +118,6 @@ router.post('/add-opinion', [verifyRefreshTokenMiddleware, imageUpload.any()], (
 })
 
 router.get('/get-opinions', (req, res) => {
-    console.log('gotres opinions')
     fs.readFile(`./translations/opinions/opinions${req.get('language')}.json`, 'utf-8', (err, fileData) => {
         if(err){
             return res.status(500).json({error: true, message: err.message})

@@ -26,7 +26,6 @@ const storage = multer.diskStorage({
 const imageUpload = multer({storage: storage})
 
 router.get('/get-other', (req, res) => {
-    console.log('gotres')
     fs.readFile(`./translations/other/other${req.get('language')}.json`, 'utf-8', async (err, fileData) => {
         if(err){
             return res.status(500).json({error: true, message: err.message})
@@ -47,7 +46,6 @@ router.get('/edit-img', [verifyRefreshTokenMiddleware, imageUpload.single()],(re
         // switch(req.body.file)
 
         // fs.unlinkSync(`${imageUploadPath}/${req.body.path}`)
-        console.log(req.body)
 
 
         } catch(e){

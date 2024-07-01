@@ -47,7 +47,6 @@ router.post('/add-service', [verifyRefreshTokenMiddleware, imageUpload.any()], (
 
     let index = 0;
 
-    console.log(isEqual)
 
     if(isEqual && prevDataEn.length !== 0){
         index = idUa + 1
@@ -178,7 +177,6 @@ router.post('/edit-service', [verifyRefreshTokenMiddleware, imageUpload.any()], 
         id: id
     })
 
-    console.log('here 0.5')
 
     prevDataEn.splice(idEn, 1, {
         title: textDataEn.title,
@@ -188,7 +186,6 @@ router.post('/edit-service', [verifyRefreshTokenMiddleware, imageUpload.any()], 
         id: id
     })
 
-    console.log('here 0.2')
 
     prevDataRu.splice(idRu, 1, {
         title: textDataRu.title,
@@ -206,7 +203,6 @@ router.post('/edit-service', [verifyRefreshTokenMiddleware, imageUpload.any()], 
         id: id
     })
 
-    console.log('here -1')
 
         // ua
         fs.writeFileSync('./translations/services/servicesua.json', JSON.stringify(prevDataUa))
@@ -249,7 +245,6 @@ router.post('/delete-service', verifyRefreshTokenMiddleware, (req, res) => {
     fs.unlinkSync(`${imageUploadPath}/${prevDataUa[idUa].svg}`)
     
 
-    console.log(idUa, idRu, idEn, idPl)
 
         prevDataUa.splice(idUa, 1)
         prevDataEn.splice(idEn, 1)

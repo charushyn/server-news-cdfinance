@@ -1,1 +1,31 @@
-[{"title":"Leasing","description":"Twoja firma wymaga rozszerzenia? Potrzebujesz samochodów, biur? Pomożemy Ci! Znajdziemy idealne warunki i wszystko załatwimy.","bg":"bgPhoto_dateVal_1719326336198_leasing.jpg","svg":"iconSVG_dateVal_1719326612604_carcar.png","id":2},{"title":"Kredyty hipoteczne","description":"Przeanalizujemy wszystkie warunki i pomożemy Ci we wszystkich kwestiach.","bg":"bgPhoto_dateVal_1719326803085_bad-credit-home-loan.jpeg","svg":"iconSVG_dateVal_1719326803083_househouse.png","id":3},{"title":"Ubezpieczenia","description":"Specjalizujemy się w różnorodnych ofertach, mianowicie: wszelkie rodzaje ubezpieczeń samochodowych, turystycznych, majątkowych dla właścicieli i najemców oraz abonamenty medyczne.","bg":"bgPhoto_dateVal_1719327198798_incurence.jpg","svg":"iconSVG_dateVal_1719327198797_healthcare.png","id":4},{"title":"Inwestycje","description":"Chcesz, aby Twoje pieniądze pracowały dla Ciebie? Zorganizujemy to: konsultacje finansowe i pomoc w inwestycjach.","bg":"bgPhoto_dateVal_1719327522555_investinvest.jpg","svg":"iconSVG_dateVal_1719327522553_2639841_investment_icon.png","id":5}]
+[
+    {
+      "title": "Leasing",
+      "description": "Twoja firma wymaga rozszerzenia? Potrzebujesz samochodów, biur? Pomożemy Ci! Znajdziemy idealne warunki i wszystko załatwimy.",
+      "bg": "bgPhoto_dateVal_1719326336198_leasing.jpg",
+      "svg": "iconSVG_dateVal_1719326612604_carcar.svg",
+      "id": 2
+    },
+    {
+      "title": "Kredyty hipoteczne",
+      "description": "Przeanalizujemy wszystkie warunki i pomożemy Ci we wszystkich kwestiach.",
+      "bg": "bgPhoto_dateVal_1719326803085_bad-credit-home-loan.jpeg",
+      "svg": "iconSVG_dateVal_1719326803083_househouse.svg",
+      "id": 3
+    },
+    {
+      "title": "Ubezpieczenia",
+      "description": "Specjalizujemy się w różnorodnych ofertach, mianowicie: wszelkie rodzaje ubezpieczeń samochodowych, turystycznych, majątkowych dla właścicieli i najemców oraz abonamenty medyczne.",
+      "bg": "bgPhoto_dateVal_1719327198798_incurence.jpg",
+      "svg": "iconSVG_dateVal_1719327198797_healthcare.svg",
+      "id": 4
+    },
+    {
+      "title": "Inwestycje",
+      "description": "Chcesz, aby Twoje pieniądze pracowały dla Ciebie? Zorganizujemy to: konsultacje finansowe i pomoc w inwestycjach.",
+      "bg": "bgPhoto_dateVal_1719327522555_investinvest.jpg",
+      "svg": "iconSVG_dateVal_1719327522553_2639841_investment_icon.svg",
+      "id": 5
+    }
+  ]
+  

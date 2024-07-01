@@ -50,8 +50,6 @@ router.post('/add-whywe', [verifyRefreshTokenMiddleware, imageUpload.any()], (re
 
     let index = 0;
 
-    console.log(isEqual)
-
     if(isEqual && prevDataEn.length !== 0){
         index = idUa + 1
     }

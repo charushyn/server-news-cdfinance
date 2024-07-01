@@ -5,6 +5,7 @@ import bodyParser from 'body-parser'
 import multer from 'multer'
 import { createHmac } from 'crypto'
 import cookieParser from "cookie-parser"
+import sharp from 'sharp'
 
 // routes
 import routeServices from './routes/editor/services.js'
@@ -36,7 +37,7 @@ const storage = multer.diskStorage({
 const imageUpload = multer({storage: storage})
 
 app.use(cors({
-  origin: ['http://localhost:3000', 'https://localhost:3000', 'http://127.0.0.1:3000', 'https://127.0.0.1:3000', 'http://cdfinance.pl', 'https://cdfinance.pl'],
+    origin: ['http://localhost:3000', 'https://localhost:3000', 'http://127.0.0.1:3000', 'https://127.0.0.1:3000', 'http://cdfinance.pl', 'https://cdfinance.pl'],
     credentials: true
 }))
 
@@ -58,17 +59,31 @@ app.use('', whywesRouter)
 app.post('/img', imageUpload.none(), (req, res) => {
   fs.readFile(`${imageUploadPath}/${req.body.name}`, (err, fileData) => {
     if(err){return res.send(JSON.stringify(err)).status(500)}
-    return res.send(JSON.stringify(fileData)).status(200)
-  })
-    // try{
-    //     const filename = req.body.name
-    //     const data = fs.readFileSync(`${imageUploadPath}/${filename}`)
-    //     return res.send(JSON.stringify(data)).status(200)
-        
-    // } catch(e) {
-    //     return res.send(JSON.stringify(e)).status(500)
-    // }
+
+    const img = sharp(fileData)
+    const string = req.body.name.split('.')[1]
+
+    if(string === 'svg'){
+        img
+        .toBuffer()
+        .then(function (data) {
+        let base64Encoded = data.toString("base64");
+        const url = `data:image/svg+sml;base64,${base64Encoded}`;
+
+        res.status(200).send({ data: url });
+        });
+    } else {
+        img
+        .jpeg({ mozjpeg: true }) 
+        .toBuffer()
+        .then(function (data) {
+          let base64Encoded = data.toString("base64");
+          const url = `data:image/jpeg;base64,${base64Encoded}`;
     
+          res.status(200).send({ data: url });
+        });
+    }
+  }) 
 })
 
 

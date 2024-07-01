@@ -52,11 +52,9 @@ router.post('/add-social-media', [verifyRefreshTokenMiddleware, imageUpload.any(
 
     const isEqual = [idUa, idEn, idPl, idRu].every( (val, i, arr) => val === arr[0] )
 
-    console.log(isEqual, [idUa, idEn, idPl, idRu])
 
     let index = 0;
 
-    console.log(isEqual)
 
     if(isEqual && prevDataEn[idSection].data.length !== 0){
         index = idUa + 1
@@ -215,8 +213,6 @@ router.post('/delete-social-media', [verifyRefreshTokenMiddleware, imageUpload.n
         const idRu = prevDataRu[idSection].data.findIndex((item) => {return +item.index == id})
         const idPl = prevDataPl[idSection].data.findIndex((item) => {return +item.index == id})
         const idEn = prevDataEn[idSection].data.findIndex((item) => {return +item.index == id})
-        console.log(idUa)
-        console.log(prevDataUa[idSection].data)
 
             fs.unlinkSync(`${imageUploadPath}/${prevDataUa[idSection].data[idUa].svg}`)
         
@@ -257,7 +253,6 @@ router.post('/delete-social-media', [verifyRefreshTokenMiddleware, imageUpload.n
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 router.post('/edit-work-day', [verifyRefreshTokenMiddleware, imageUpload.none()],(req, res) => {
-    console.log('edit work day req')
     try{
         const data = req.body
         
@@ -364,7 +359,6 @@ router.post('/add-site-agreements', [verifyRefreshTokenMiddleware, imageUpload.n
 
     let index = 0;
 
-    console.log(isEqual)
 
     if(isEqual && prevDataEn[idSection].data.length !== 0){
         index = idUa + 1
