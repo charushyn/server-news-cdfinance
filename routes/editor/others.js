@@ -5,7 +5,10 @@ import multer from 'multer';
 import * as fs from 'fs'
 import { verifyRefreshTokenMiddleware } from '../auth/utils.js';
 
-const imageUploadPath = '/Users/charushyn/Documents/GitHub/server-cdfinance/files';
+import { configDotenv } from "dotenv";
+configDotenv();
+
+const imageUploadPath = process.env.PATH_TO_IMAGES;
 
 const PATHES = {
     UA: './translations/other/otherua.json',
