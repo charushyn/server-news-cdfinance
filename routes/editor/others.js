@@ -55,57 +55,74 @@ router.get('/edit-img', [verifyRefreshTokenMiddleware, imageUpload.single()],(re
 
         res.send(fileData).status(200)
 })
-        
 
-router.post('/edit-other', imageUpload.any(), (req, res) => {
-
+router.post('/edit-map', imageUpload.none(), (req,res) => {
     try{
-    const textDataUa = JSON.parse(req.body.ua)
-    const textDataRu = JSON.parse(req.body.ru)
-    const textDataEn = JSON.parse(req.body.en)
-    const textDataPl = JSON.parse(req.body.pl)
+        const body = req.body
 
-    const idLogo = req.files.findIndex((item) => {
-        return item.fieldname == 'logo'
-    })
+        const prevDataUa = JSON.parse(fs.readFileSync(PATHES.UA))
+        const prevDataRu = JSON.parse(fs.readFileSync(PATHES.RU))
+        const prevDataPl = JSON.parse(fs.readFileSync(PATHES.PL))
+        const prevDataEn = JSON.parse(fs.readFileSync(PATHES.EN))
 
-    const logo = idLogo !== -1 ? req.files[idLogo].path : undefined
 
-    const prevDataUa = JSON.parse(fs.readFileSync(PATHES.UA))
-    const prevDataRu = JSON.parse(fs.readFileSync(PATHES.RU))
-    const prevDataPl = JSON.parse(fs.readFileSync(PATHES.PL))
-    const prevDataEn = JSON.parse(fs.readFileSync(PATHES.EN))
+        // ua
 
-    if(logo){
-        fs.unlinkSync(prevDataUa.logo)
+        prevDataUa.map = {
+            adress: body.adress,
+            link: body.link,
+            coordination: [+body.X, +body.Y],
+        }
+        // ru
+
+        prevDataRu.map = {
+            adress: body.adress,
+            link: body.link,
+            coordination: [+body.X, +body.Y],
+        }
+        // en
+
+        prevDataEn.map = {
+            adress: body.adress,
+            link: body.link,
+            coordination: [+body.X, +body.Y],
+        }
+        // pl
+
+        prevDataPl.map = {
+            adress: body.adress,
+            link: body.link,
+            coordination: [+body.X, +body.Y],
+        }
+
+        fs.writeFileSync(PATHES.UA, JSON.stringify(prevDataUa))
+        fs.writeFileSync(PATHES.PL, JSON.stringify(prevDataPl))
+        fs.writeFileSync(PATHES.RU, JSON.stringify(prevDataRu))
+        fs.writeFileSync(PATHES.EN, JSON.stringify(prevDataEn))
+
+
+        return res.status(200).json({error: false, message: 'edited'})
+    } catch (err){
+        return res.status(500).json({error: true, message: err.message})
     }
-    // ua
+})
 
-    prevDataUa.h1 = textDataUa.h1 ? textDataUa.h1 : prevDataUa.h1
-    prevDataUa.buttons = textDataUa.buttons ? textDataUa.buttons : prevDataUa.buttons
-    prevDataUa.map = textDataUa.map ? textDataUa.map : prevDataUa.map
-    prevDataUa.logo = logo ? logo : prevDataUa.logo
+router.post('/edit-logo', imageUpload.single(), (req,res) => {
+    try{
+        const logo = req.files[0].path
 
-    // ru
+        const prevDataUa = JSON.parse(fs.readFileSync(PATHES.UA))
+        const prevDataRu = JSON.parse(fs.readFileSync(PATHES.RU))
+        const prevDataPl = JSON.parse(fs.readFileSync(PATHES.PL))
+        const prevDataEn = JSON.parse(fs.readFileSync(PATHES.EN))
 
-    prevDataRu.h1 = textDataRu.h1 ? textDataRu.h1 : prevDataRu.h1
-    prevDataRu.buttons = textDataRu.buttons ? textDataRu.buttons : prevDataRu.buttons
-    prevDataRu.map = textDataRu.map ? textDataRu.map : prevDataRu.map
-    prevDataRu.logo = logo ? logo : prevDataUa.logo
 
-    // en
+        fs.unlinkSync(prevDataUa.logo)
 
-    prevDataEn.h1 = textDataEn.h1 ? textDataEn.h1 : prevDataEn.h1
-    prevDataEn.buttons = textDataEn.buttons ? textDataEn.buttons : prevDataEn.buttons
-    prevDataEn.map = textDataEn.map ? textDataEn.map : prevDataEn.map
-    prevDataEn.logo = logo ? logo : prevDataUa.logo
-
-    // pl
-
-    prevDataPl.h1 = textDataPl.h1 ? textDataPl.h1 : prevDataPl.h1
-    prevDataPl.buttons = textDataPl.buttons ? textDataPl.buttons : prevDataPl.buttons
-    prevDataPl.map = textDataPl.map ? textDataPl.map : prevDataPl.map
-    prevDataPl.logo = logo ? logo : prevDataUa.logo
+        prevDataUa.logo = logo
+        prevDataRu.logo = logo
+        prevDataEn.logo = logo
+        prevDataPl.logo = logo
 
         // ua
         fs.writeFileSync(PATHES.UA, JSON.stringify(prevDataUa))
@@ -118,9 +135,41 @@ router.post('/edit-other', imageUpload.any(), (req, res) => {
 
         // en
         fs.writeFileSync(PATHES.EN, JSON.stringify(prevDataEn))
-    
+
+        return res.status(200).json({error: false, message: 'edited'})
+    } catch (err){
+        return res.status(400).json({error: true, message: err.message})
+    }
+})
+
+router.post('/edit-feedback-bg', imageUpload.single(), (req,res) => {
+    try{
+        const feedback_bg = req.files[0].path
+
+        const prevDataUa = JSON.parse(fs.readFileSync(PATHES.UA))
+        const prevDataRu = JSON.parse(fs.readFileSync(PATHES.RU))
+        const prevDataPl = JSON.parse(fs.readFileSync(PATHES.PL))
+        const prevDataEn = JSON.parse(fs.readFileSync(PATHES.EN))
 
 
+        fs.unlinkSync(prevDataUa.feedbackbg)
+
+        prevDataUa.feedbackbg = feedback_bg
+        prevDataRu.feedbackbg = feedback_bg
+        prevDataEn.feedbackbg = feedback_bg
+        prevDataPl.feedbackbg = feedback_bg
+
+        // ua
+        fs.writeFileSync(PATHES.UA, JSON.stringify(prevDataUa))
+
+        // pl
+        fs.writeFileSync(PATHES.PL, JSON.stringify(prevDataPl))
+
+        // ru
+        fs.writeFileSync(PATHES.RU, JSON.stringify(prevDataRu))
+
+        // en
+        fs.writeFileSync(PATHES.EN, JSON.stringify(prevDataEn))
 
         return res.status(200).json({error: false, message: 'edited'})
     } catch (err){

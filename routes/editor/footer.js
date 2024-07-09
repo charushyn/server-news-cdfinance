@@ -57,7 +57,7 @@ router.post('/add-social-media', [verifyRefreshTokenMiddleware, imageUpload.any(
 
 
     if(isEqual && prevDataEn[idSection].data.length !== 0){
-        index = idUa + 1
+        index = +idUa + 1
     }
         // en
 
@@ -263,8 +263,11 @@ router.post('/edit-work-day', [verifyRefreshTokenMiddleware, imageUpload.none()]
         const prevDataPl = JSON.parse(fs.readFileSync(PATHES.PL))
         const prevDataEn = JSON.parse(fs.readFileSync(PATHES.EN))
 
-        const from = data.time.from.slice(11, 16)
-        const to = data.time.to.slice(11, 16)
+
+        const fromH = data.isOpen ? +data.time.from.slice(11, 13) + 2 : ''
+        const toH = data.isOpen ? +data.time.to.slice(11, 13) + 2 : ''
+        const fromM = data.isOpen ? data.time.from.slice(14, 16) : ''
+        const toM = data.isOpen ? data.time.to.slice(14, 16) : ''
     
         const idSection = prevDataUa.findIndex((item) => {return item.id === 0})
 
@@ -274,9 +277,9 @@ router.post('/edit-work-day', [verifyRefreshTokenMiddleware, imageUpload.none()]
                 day: prevDataEn[idSection].data[id].day,
                 closed: prevDataEn[idSection].data[id].closed,
                 isOpen: data.isOpen,
-                time: isOpen ? {
-                    from: from,
-                    to: to
+                time: data.isOpen ? {
+                    from: `${fromH}:${fromM}`,
+                    to: `${toH}:${toM}`
                 } : '',
 
             }
@@ -289,9 +292,9 @@ router.post('/edit-work-day', [verifyRefreshTokenMiddleware, imageUpload.none()]
                 day: prevDataEn[idSection].data[id].day,
                 closed: prevDataEn[idSection].data[id].closed,
                 isOpen: data.isOpen,
-                time: isOpen ? {
-                    from: from,
-                    to: to
+                time: data.isOpen ? {
+                    from: `${fromH}:${fromM}`,
+                    to: `${toH}:${toM}`
                 } : '',
             })
     
@@ -303,9 +306,9 @@ router.post('/edit-work-day', [verifyRefreshTokenMiddleware, imageUpload.none()]
                 day: prevDataEn[idSection].data[id].day,
                 closed: prevDataEn[idSection].data[id].closed,
                 isOpen: data.isOpen,
-                time: isOpen ? {
-                    from: from,
-                    to: to
+                time: data.isOpen ? {
+                    from: `${fromH}:${fromM}`,
+                    to: `${toH}:${toM}`
                 } : '',
             })
     
@@ -317,19 +320,17 @@ router.post('/edit-work-day', [verifyRefreshTokenMiddleware, imageUpload.none()]
                 day: prevDataEn[idSection].data[id].day,
                 closed: prevDataEn[idSection].data[id].closed,
                 isOpen: data.isOpen,
-                time: isOpen ? {
-                    from: from,
-                    to: to
+                time: data.isOpen ? {
+                    from: `${fromH}:${fromM}`,
+                    to: `${toH}:${toM}`
                 } : '',
             })
     
             fs.writeFileSync(PATHES.PL, JSON.stringify(prevDataPl))
-    
-
-
 
         return res.status(200).json({error: false, message: 'edited'})
     } catch (err){
+        console.log(err)
         return res.status(500).json({error: true, message: err.message})
     }
 })
@@ -361,7 +362,7 @@ router.post('/add-site-agreements', [verifyRefreshTokenMiddleware, imageUpload.n
 
 
     if(isEqual && prevDataEn[idSection].data.length !== 0){
-        index = idUa + 1
+        index = +idUa + 1
     }
         // en
 

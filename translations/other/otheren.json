@@ -7,6 +7,7 @@
         "form": "Contact Form"
     },
     "logo": "gold-logo.png",
+    "feedbackbg": "feedback-bg.png",
     "buttons": {
         "services": "To Services",
         "faq": "To Services",

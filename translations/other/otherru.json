@@ -7,6 +7,7 @@
         "form": "Обратная связь"
     },
     "logo": "gold-logo.png",
+    "feedbackbg": "feedback-bg.png",
     "buttons": {
         "services": "К услугам",
         "faq": "К услугам",

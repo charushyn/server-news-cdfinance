@@ -4,20 +4,22 @@ import crypto from 'crypto'
 import cookie from 'cookie'
 import cookieParser from 'cookie-parser';
 import { getTokens, refreshTokenTokenAge, verifyRefreshTokenMiddleware } from './utils.js';
-import { passwordSecret, fakeUser } from '../../data.js';
 
 const authRouter = express.Router();
+
+import { configDotenv } from "dotenv";
+configDotenv();
 
 authRouter.post("/login", (req, res) => {
   const { login, password } = req.body;
 
   const hash = crypto
-    .createHmac("sha256", passwordSecret)
+    .createHmac("sha256", process.env.PASSWORD_SECRET)
     .update(password)
     .digest("hex");
-  const isVerifiedPassword = hash === fakeUser.passwordHash;
+  const isVerifiedPassword = hash === process.env.PASSWORD_HASH;
 
-  if (login !== fakeUser.login || !isVerifiedPassword) {
+  if (login !== process.env.LOGIN || !isVerifiedPassword) {
     return res.status(401).send("Login fail");
   }
 
@@ -26,7 +28,7 @@ authRouter.post("/login", (req, res) => {
   res.setHeader(
     "Set-Cookie",
     cookie.serialize("refreshToken", refreshToken, {
-      domain: 'cdfinance.pl',
+      domain: process.env.DOMAIN,
       httpOnly: true,
       maxAge: refreshTokenTokenAge,
     })

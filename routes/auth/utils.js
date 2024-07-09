@@ -1,9 +1,9 @@
 import jwt from "jsonwebtoken"
 
-const signatureRefresh = "MySuP3R_z3kr3t_refresh";
-
-const accessTokenAge = 10 * 6; //s
 const refreshTokenTokenAge = 60 * 60; //s (7d)
+
+import { configDotenv } from "dotenv";
+configDotenv();
 
 
 const verifyRefreshTokenMiddleware = (req, res, next) => {
@@ -14,7 +14,7 @@ const verifyRefreshTokenMiddleware = (req, res, next) => {
   }
 
   try {
-    const decoded = jwt.verify(refreshToken, signatureRefresh);
+    const decoded = jwt.verify(refreshToken, process.env.SIGNATURE);
     req.user = decoded;
   } catch (err) {
     res.setHeader(
@@ -30,7 +30,7 @@ const verifyRefreshTokenMiddleware = (req, res, next) => {
 };
 
 const getTokens = (login) => ({
-  refreshToken: jwt.sign({ login }, signatureRefresh, {
+  refreshToken: jwt.sign({ login }, process.env.SIGNATURE, {
     expiresIn: `${refreshTokenTokenAge}s`,
   }),
 });

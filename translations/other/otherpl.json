@@ -7,6 +7,7 @@
         "form": "Formularz kontaktowy"
     },
     "logo": "gold-logo.png",
+    "feedbackbg": "feedback-bg.png",
     "buttons": {
         "services": "Do usługi",
         "faq": "Do usługi",
